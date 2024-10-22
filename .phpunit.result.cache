@@ -1,0 +1,1 @@
+{"version":1,"defects":{"User\\IndexTest::testIndex":7,"Core\\ResponseTest::testCreateReturnsResponseInterface":8},"times":{"User\\IndexTest::testIndex":0.894,"Core\\ResponseTest::testCreateReturnsResponseInterface":0.029,"Core\\ResponseTest::testCreateSetsCorrectStatus":0,"Core\\ResponseTest::testCreateSetsCorrectBody":0,"Core\\ResponseTest::testCreateSetsCorrectHeaders":0}}
