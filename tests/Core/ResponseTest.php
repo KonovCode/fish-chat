@@ -8,34 +8,36 @@ use Vlad\FishChat\core\Response;
 
 class ResponseTest extends TestCase
 {
+    private Response $response;
+    protected function setUp(): void
+    {
+        $this->response = new Response();
+    }
+
     public function testCreateReturnsResponseInterface()
     {
-        $response = new Response();
-        $result = $response->create(200, 'OK', ['Content-Type' => 'text/plain']);
+        $result = $this->response->create(200, 'OK', ['Content-Type' => 'text/plain']);
 
         $this->assertInstanceOf(ResponseInterface::class, $result);
     }
 
     public function testCreateSetsCorrectStatus()
     {
-        $response = new Response();
-        $result = $response->create(404, 'Not Found');
+        $result = $this->response->create(404, 'Not Found');
 
         $this->assertEquals(404, $result->getStatusCode());
     }
 
     public function testCreateSetsCorrectBody()
     {
-        $response = new Response();
-        $result = $response->create(200, 'Hello World');
+        $result = $this->response->create(200, 'Hello World');
 
         $this->assertEquals('Hello World', (string) $result->getBody());
     }
 
     public function testCreateSetsCorrectHeaders()
     {
-        $response = new Response();
-        $result = $response->create(200, '', ['Content-Type' => 'application/json']);
+        $result = $this->response->create(200, '', ['Content-Type' => 'application/json']);
 
         $this->assertEquals(['application/json'], $result->getHeader('Content-Type'));
     }

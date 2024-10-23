@@ -6,7 +6,7 @@ use AltoRouter;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class Router
+readonly class Router
 {
     public function __construct(private AltoRouter $router)
     {
@@ -19,32 +19,28 @@ class Router
     {
         $path = $request->getUri()->getPath();
         $method = $request->getMethod();
-        $responseV = new Response();
+        $responseObject = new Response();
 
-        // Совпадение маршрута
         $match = $this->router->match($path, $method);
 
         if (isset($match['target'])) {
             $target = $match['target'];
             $params = $match['params'];
 
-            // Проверяем, что целевой маршрут является вызываемым
             if (is_array($target)) {
 
                 if(method_exists($target[0], $target[1])) {
-                    $controller = new $target[0]();
-                    $response = call_user_func_array([$controller, $target[1]], $params);
+                    $response = Container::getInstance()->call($target[0] . '::' . $target[1], $params);
+
                     if ($response instanceof ResponseInterface) {
                         return $response;
                     } else {
-                        // Если метод не вернул ResponseInterface, возвращаем 500 ошибку
-                        return $responseV->create(500, "Unexpected response type");
+                        return $responseObject->create(500, "Unexpected response type");
                     }
                 }
             }
         }
 
-        // Если маршрут не найден, возвращаем 404
-        return $responseV->create(404, "not found");
+        return $responseObject->create(404, "not found");
     }
 }

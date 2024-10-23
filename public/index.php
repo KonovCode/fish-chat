@@ -4,9 +4,9 @@ require __DIR__ . "/../vendor/autoload.php";
 
 require __DIR__ . "/../config/error_handler.php";
 
-$container = require_once __DIR__ . "/../config/di-container.php";
+$container = \Vlad\FishChat\core\Container::getInstance();
 
-$requestCreator = $container->get(\Nyholm\Psr7Server\ServerRequestCreator::class)->fromGlobals();
+$requestCreator = $container->get(\Vlad\FishChat\core\Request::class);
 
 $middleware = $container->get(\Vlad\FishChat\core\PipelineMiddleware::class);
 

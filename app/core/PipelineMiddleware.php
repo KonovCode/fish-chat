@@ -9,8 +9,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class PipelineMiddleware implements RequestHandlerInterface
 {
-
-    public function __construct(private Router $router)
+    public function __construct(private readonly Router $router)
     {
     }
 
