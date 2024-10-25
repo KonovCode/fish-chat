@@ -2,7 +2,6 @@
 
 namespace Vlad\FishChat\Controllers;
 
-use Vlad\FishChat\core\Request;
 use Vlad\FishChat\core\Response;
 
 class IndexController

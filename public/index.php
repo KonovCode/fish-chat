@@ -2,9 +2,14 @@
 
 require __DIR__ . "/../vendor/autoload.php";
 
-require __DIR__ . "/../config/error_handler.php";
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../");
+$dotenv->load();
 
 $container = \Vlad\FishChat\core\Container::getInstance();
+
+$container->get(\Vlad\FishChat\core\ErrorHandler::class);
 
 $requestCreator = $container->get(\Vlad\FishChat\core\Request::class);
 
