@@ -23,7 +23,8 @@
         "monolog/monolog": "^3.7",
         "cboden/ratchet": "^0.4.4",
          "ext-pdo": "*",
-        "robmorgan/phinx": "^0.16.5"
+        "robmorgan/phinx": "^0.16.5",
+        "phpauth/phpauth": "^1.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^11.4"

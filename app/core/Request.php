@@ -19,7 +19,7 @@ readonly class Request implements ServerRequestInterface
 
     public function all(): array
     {
-        return (array) $this->baseRequest->getParsedBody();
+        return (array) json_decode($this->baseRequest->getBody()->getContents(), true);
     }
 
     public function getProtocolVersion(): string

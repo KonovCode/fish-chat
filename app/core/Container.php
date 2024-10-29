@@ -45,6 +45,7 @@ class Container
                 \Vlad\FishChat\core\PipelineMiddleware::class => \DI\autowire(\Vlad\FishChat\core\PipelineMiddleware::class)
                     ->method('addMiddleware', \DI\get(\Vlad\FishChat\Middlewares\CorsMiddleware::class))
                     ->method('addMiddleware', \DI\get(\Vlad\FishChat\Middlewares\CsrfTokenMiddleware::class))
+                    ->method('addMiddleware', \DI\get(\Vlad\FishChat\Middlewares\CheckAuthenticatedMiddleware::class))
 
             ]);
 

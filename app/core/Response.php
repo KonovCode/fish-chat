@@ -11,4 +11,10 @@ class Response
     {
         return new NyholmResponse($status, $headers, $body);
     }
+
+    public function redirect(string $url, int $status = 302, array $headers = []): ResponseInterface
+    {
+        $headers['Location'] = $url;
+        return new NyholmResponse($status, $headers);
+    }
 }
