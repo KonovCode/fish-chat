@@ -1,13 +1,6 @@
 <?php
 
-require __DIR__ . "/../vendor/autoload.php";
-
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createImmutable(__DIR__ . "/../");
-$dotenv->load();
-
-$container = \Vlad\FishChat\core\Container::getInstance();
+$container = require __DIR__ . '/../config/bootstrap.php';
 
 $container->get(\Vlad\FishChat\core\ErrorHandler::class);
 

@@ -2,7 +2,6 @@
 
 namespace Vlad\FishChat\Controllers;
 
-use Vlad\FishChat\core\Request;
 use Vlad\FishChat\core\Response;
 
 class IndexController
@@ -17,7 +16,7 @@ class IndexController
         return $response->create(200, json_encode([
             'data' => [
                 'testOne' => ['1' => 'one', '2' => 'two', '3' => 'three'],
-                'testTwo' => ['11' => 'result two', '12' => 'result three', '13' => 'result four']
+                'testTwo' => ['11' => 'result two', '12' => 'result three', '13' => 'result four'],
             ],
         ]), ['Content-Type' => 'application/json']);
     }
