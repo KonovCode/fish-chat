@@ -52,7 +52,6 @@ class Container
                     ->method('addMiddleware', \DI\get(\Vlad\FishChat\Middlewares\CorsMiddleware::class))
                     ->method('addMiddleware', \DI\get(\Vlad\FishChat\Middlewares\CsrfTokenMiddleware::class))
                     ->method('addMiddleware', \DI\get(\Vlad\FishChat\Middlewares\CheckAuthenticatedMiddleware::class))
-
             ]);
 
             self::$container = $builder->build();

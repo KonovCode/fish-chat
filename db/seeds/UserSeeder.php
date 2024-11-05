@@ -17,9 +17,9 @@ class UserSeeder extends AbstractSeed
     public function run(): void
     {
         $data = [
-            ['name' => 'Vladislav', 'email' => 'vlad@example.com', 'password' => 'password123'],
-            ['name' => 'Vasya', 'email' => 'vasya@example.com', 'password' => 'password321'],
-            ['name' => 'Kate', 'email' => 'kate@example.com', 'password' => 'password888'],
+            ['name' => 'testone', 'surname' => 'userOne', 'email' => 'testone@example.com', 'password' => 'test12345', 'confirm_password' => 'test12345'],
+            ['name' => 'testtwo', 'surname' => 'userTwo', 'email' => 'testtwo@example.com', 'password' => 'test12345', 'confirm_password' => 'test12345'],
+            ['name' => 'testthree', 'surname' => 'userThree', 'email' => 'testthree@example.com', 'password' => 'test12345', 'confirm_password' => 'test12345'],
         ];
 
         $this->table('users')->insert($data)->save();

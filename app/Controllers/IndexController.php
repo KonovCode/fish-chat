@@ -8,7 +8,7 @@ class IndexController
 {
     public function index(Response $response): \Psr\Http\Message\ResponseInterface
     {
-        return $response->create(200, json_encode(['message' => 'login page']), ['Content-Type' => 'application/json']);
+        return $response->create(200, json_encode(['message' => 'index response']), ['Content-Type' => 'application/json']);
     }
 
     public function show(Response $response): \Psr\Http\Message\ResponseInterface
