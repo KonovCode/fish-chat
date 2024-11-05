@@ -12,7 +12,7 @@ This is a pet project created with the main goal of practicing application devel
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/KonovCode/fish-chat.git
    ```
 2. Install dependencies:
    ```bash
@@ -23,7 +23,11 @@ This is a pet project created with the main goal of practicing application devel
    cp .env.example .env
    ```   
    Then update the .env file with your database credentials.
-4. Seed the database with three test users:
+4. Run the database migrations from the project root:
+   ```bash
+   vendor/bin/phinx migrate
+   ```
+5. Seed the database with three test users:
    ```bash
    vendor/bin/phinx seed:run
    ```
