@@ -7,7 +7,7 @@ This is a pet project created with the main goal of practicing application devel
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
+- [Frontend Interaction](#frontend)
 
 ## Installation
 1. Clone the repository:
@@ -74,7 +74,7 @@ function login() {
          'X-CSRF-Token': token,
       },
       credentials: 'include',
-      body: JSON.stringify({ email: 'userOne@gmail.com', password: 'test12345' }),
+      body: JSON.stringify({ email: 'testone@example.com', password: 'test12345' }),
    })
            .then(response => {
               if (!response.ok) throw new Error('Network response was not ok');

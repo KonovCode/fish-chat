@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Phinx\Seed\AbstractSeed;
+use Vlad\FishChat\Auth\Authentication;
 
 class UserSeeder extends AbstractSeed
 {
@@ -16,12 +17,16 @@ class UserSeeder extends AbstractSeed
      */
     public function run(): void
     {
+        $auth = new Authentication();
+
         $data = [
             ['name' => 'testone', 'surname' => 'userOne', 'email' => 'testone@example.com', 'password' => 'test12345', 'confirm_password' => 'test12345'],
             ['name' => 'testtwo', 'surname' => 'userTwo', 'email' => 'testtwo@example.com', 'password' => 'test12345', 'confirm_password' => 'test12345'],
             ['name' => 'testthree', 'surname' => 'userThree', 'email' => 'testthree@example.com', 'password' => 'test12345', 'confirm_password' => 'test12345'],
         ];
 
-        $this->table('users')->insert($data)->save();
+        foreach ($data as $user) {
+            $auth->register($user['email'], $user['password'], $user['confirm_password'], ['surname' => $user['surname'], 'name' => $user['name']]);
+        }
     }
 }
